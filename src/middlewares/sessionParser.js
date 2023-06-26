@@ -6,9 +6,9 @@ require('dotenv').config();
 const FileStore = store(session);
 
 const sessionParser = session({
-  name: process.env.SESSION_NAME,
+  name: process.env.COOKIE_NAME,
   store: new FileStore({}),
-  secret: 'mkdfjfsdngjknljpeaaj',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {

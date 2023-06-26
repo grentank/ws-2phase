@@ -13,6 +13,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     'no-console': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
     'import/no-extraneous-dependencies': 'off',
     'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',

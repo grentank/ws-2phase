@@ -63,11 +63,12 @@ apiAuthRouter.get('/logout', (req, res) => {
 apiAuthRouter.post('/sms', async (req, res) => {
   try {
     const { phone } = req.body;
+    if (!phone) return res.status(500).json({ message: 'No phone provided' });
     /* const response = await axios.post(
       'https://direct.i-dgtl.ru/api/v1/verifier/send',
       {
         channelType: 'SMS',
-        destination: phone,
+        destination: `7${phone}`,
         gatewayId: process.env.API_KEY_GATEWAY_ID,
       },
       {
@@ -79,7 +80,7 @@ apiAuthRouter.post('/sms', async (req, res) => {
     ); */
     setTimeout(() => {
       const response = { data: { uuid: 'uuid', phone } };
-      return res.json(response.data);
+      res.json(response.data);
     }, 2000);
   } catch (error) {
     console.log(error);

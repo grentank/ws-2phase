@@ -1,11 +1,9 @@
-import axios from 'axios';
-import React, { createRef, useEffect, useRef, useState } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import { Col, Container, Form, InputGroup, Row } from 'react-bootstrap';
 
 export default function FormMessageCode({ submitCodeHandler, loading }) {
   const [code, setCode] = useState(['', '', '', '']);
   const [inputRefs, setInputRefs] = useState([]);
-  const modalRef = useRef(null);
 
   const changeHandler = (e, index) => {
     setCode((prev) => prev.map((char, i) => (i === index ? e.target.value.slice(0, 1) : char)));

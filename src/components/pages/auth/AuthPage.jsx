@@ -17,7 +17,7 @@ export default function AuthPage() {
   const [success, setSuccess] = useState(false);
   const { show, handleClose, content, showModal } = useModal();
 
-  const submitHandler = async (event, input) => {
+  const submitPhoneHandler = async (event, input) => {
     try {
       setLoading(true);
       event.preventDefault();
@@ -43,7 +43,7 @@ export default function AuthPage() {
       }, 1000);
     } catch (error) {
       showModal('Error', error.response.data.message);
-      return setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -52,7 +52,7 @@ export default function AuthPage() {
       <Row>
         <Col>
           {showForm ? (
-            <FormPhoneNumber submitHandler={submitHandler} loading={loading} />
+            <FormPhoneNumber submitHandler={submitPhoneHandler} loading={loading} />
           ) : (
             <FormMessageCode submitCodeHandler={submitCodeHandler} loading={loading} />
           )}

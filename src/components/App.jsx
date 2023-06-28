@@ -5,15 +5,17 @@ import NavBar from './ui/NavBar';
 import MainPage from './pages/main/MainPage';
 import ChatPage from './pages/chat/ChatPage';
 import AuthPage from './pages/auth/AuthPage';
+import ProfilePage from './pages/profile/ProfilePage';
 
-export default function App({}) {
+export default function App({ messages, user }) {
   return (
     <Container>
       <NavBar />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/chat" element={<ChatPage />} />
-        <Route path="auth" element={<AuthPage />} />
+        <Route path="/chat" element={<ChatPage messages={messages} />} />
+        <Route path="/auth" element={<AuthPage />} />
+        <Route path="/profile" element={<ProfilePage user={user} />} />
       </Routes>
     </Container>
   );

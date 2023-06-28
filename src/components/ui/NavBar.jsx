@@ -9,17 +9,22 @@ export default function NavBar() {
     {
       active: location.pathname === '/',
       href: '/',
-      text: 'Home',
+      text: 'Главная',
     },
     {
       active: location.pathname === '/chat',
       href: '/chat',
-      text: 'Chat',
+      text: 'Чат',
     },
     {
       active: location.pathname === '/auth',
       href: '/auth',
-      text: 'Auth',
+      text: 'Войти',
+    },
+    {
+      active: location.pathname === '/profile',
+      href: '/profile',
+      text: 'Профиль',
     },
   ];
   return (

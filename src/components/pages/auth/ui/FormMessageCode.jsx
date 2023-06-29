@@ -32,13 +32,8 @@ export default function FormMessageCode({ submitCodeHandler, loading }) {
   }, [code]);
   return (
     <Container>
-      <Row>
-        <Col>
-          <h1 className="display-3">Введите код из смс</h1>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
+      <Row className="justify-content-center align-items-center text-center">
+        <Col xs="6">
           <Form>
             <InputGroup className="mb-3" size="lg" style={{ width: '200px' }}>
               {code.map((char, index) => (

@@ -10,10 +10,10 @@ import ProfilePage from './pages/profile/ProfilePage';
 export default function App({ messages, user }) {
   return (
     <Container>
-      <NavBar />
+      <NavBar user={user} />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/chat" element={<ChatPage messages={messages} />} />
+        <Route path="/chat" element={<ChatPage messages={messages} user={user} />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/profile" element={<ProfilePage user={user} />} />
       </Routes>

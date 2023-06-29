@@ -10,6 +10,7 @@ import sessionParser from './middlewares/sessionParser';
 import { upgradeCb, wsServer } from './ws/wsServer';
 import connectionCb from './ws/connection';
 import apiAuthRouter from './routes/api/apiAuthRouter';
+import apiUsersRouter from './routes/api/apiUsersRouter';
 
 require('dotenv').config();
 
@@ -31,6 +32,7 @@ app.use(resLocals);
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/api/auth', apiAuthRouter);
+app.use('/api/users', apiUsersRouter);
 
 const server = createServer(app);
 

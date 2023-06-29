@@ -12,7 +12,7 @@ export default function MessageForm() {
           aria-describedby="basic-addon2"
         />
         <InputGroup.Text id="basic-addon2">
-          <Button variant="outline-secondary">
+          <Button variant="outline-primary">
             <SendIcon />
           </Button>
         </InputGroup.Text>

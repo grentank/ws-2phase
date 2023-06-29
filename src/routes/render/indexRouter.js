@@ -1,5 +1,5 @@
 import express from 'express';
-import { Message } from '../../../db/models';
+import { Message, User } from '../../../db/models';
 import authCheck from '../../middlewares/authCheck';
 
 const router = express.Router();
@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/chat', authCheck(true), async (req, res) => {
-  const messages = await Message.findAll();
+  const messages = await Message.findAll({ include: User });
   res.render('Layout', { messages });
 });
 

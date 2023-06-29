@@ -2,12 +2,14 @@ import React from 'react';
 import { Stack } from 'react-bootstrap';
 import ChatMessage from './ChatMessage';
 
-export default function MessagesList({ messages }) {
+export default function MessagesList({ messages, loggedUser }) {
   return (
-    <Stack>
-      {messages.map((message) => (
-        <ChatMessage message={message} key={message.id} />
-      ))}
-    </Stack>
+    <div className="overflow-auto" style={{ height: '25rem' }}>
+      <Stack>
+        {messages.map((message) => (
+          <ChatMessage message={message} key={message.id} loggedUser={loggedUser} />
+        ))}
+      </Stack>
+    </div>
   );
 }

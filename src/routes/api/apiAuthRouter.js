@@ -57,7 +57,8 @@ apiAuthRouter.post('/signin', async (req, res) => {
 apiAuthRouter.get('/logout', (req, res) => {
   req.session.destroy();
   res.clearCookie(process.env.COOKIE_NAME);
-  res.sendStatus(200);
+  // res.sendStatus(200);
+  res.redirect('/');
 });
 
 apiAuthRouter.post('/sms', async (req, res) => {
@@ -68,7 +69,7 @@ apiAuthRouter.post('/sms', async (req, res) => {
       'https://direct.i-dgtl.ru/api/v1/verifier/send',
       {
         channelType: 'SMS',
-        destination: `7${phone}`,
+        destination: phone,
         gatewayId: process.env.API_KEY_GATEWAY_ID,
       },
       {

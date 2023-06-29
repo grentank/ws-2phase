@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, FloatingLabel, Form, InputGroup } from 'react-bootstrap';
 import formatInput from '../utils/formatInput';
+import PhoneIcon from '../../../ui/icons/PhoneIcon';
 
 export default function FormPhoneNumber({ submitHandler, loading }) {
   const [input, setInput] = useState({
@@ -33,10 +34,12 @@ export default function FormPhoneNumber({ submitHandler, loading }) {
             disabled={loading}
           />
         </FloatingLabel>
+        <InputGroup.Text>
+          <Button variant="outline-primary" type="submit">
+            <PhoneIcon />
+          </Button>
+        </InputGroup.Text>
       </InputGroup>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
     </Form>
   );
 }

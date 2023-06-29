@@ -3,20 +3,19 @@ import { Col, Container, Row } from 'react-bootstrap';
 import UsersList from './ui/UsersList';
 import ChatComponent from './ui/ChatComponent';
 
-export default function ChatPage({ messages: initMessages }) {
+const initUsers = [{ name: 'Alex' }, { name: 'Bob' }, { name: 'Carl' }];
+
+export default function ChatPage({ messages: initMessages, user: loggedUser }) {
   const [messages, setMessages] = useState(initMessages);
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState(initUsers);
   return (
     <Container>
-      <Row>
-        <Col>Chat page</Col>
-      </Row>
       <Row>
         <Col xs={2}>
           <UsersList users={users} />
         </Col>
         <Col xs={10}>
-          <ChatComponent messages={messages} />
+          <ChatComponent messages={messages} loggedUser={loggedUser} />
         </Col>
       </Row>
     </Container>

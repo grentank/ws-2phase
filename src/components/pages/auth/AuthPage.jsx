@@ -21,9 +21,10 @@ export default function AuthPage() {
     try {
       setLoading(true);
       event.preventDefault();
-      const response = await axios.post('/api/auth/sms', { phone: input.phoneString });
+      const phone = `7${input.phoneString}`;
+      const response = await axios.post('/api/auth/sms', { phone });
       if (response.status === 200) {
-        setBackendData({ uuid: response.data.uuid, phone: input.phoneString });
+        setBackendData({ uuid: response.data.uuid, phone });
         setShowForm(false);
       }
     } catch (error) {
@@ -49,8 +50,17 @@ export default function AuthPage() {
 
   return (
     <Container>
-      <Row>
-        <Col>
+      <Row className="justify-content-center align-items-center text-center">
+        <Col xs="8">
+          {showForm ? (
+            <h1 className="display-5 p-2">Войти</h1>
+          ) : (
+            <h1 className="display-5">Введите код из смс</h1>
+          )}
+        </Col>
+      </Row>
+      <Row className="justify-content-center align-items-center text-center">
+        <Col xs="7">
           {showForm ? (
             <FormPhoneNumber submitHandler={submitPhoneHandler} loading={loading} />
           ) : (
@@ -58,8 +68,8 @@ export default function AuthPage() {
           )}
         </Col>
       </Row>
-      <Row>
-        <Col>
+      <Row className="justify-content-center align-items-center text-center">
+        <Col xs="4">
           {success ? <CheckMarkIcon /> : <Spinner animation="border" size="lg" hidden={!loading} />}
         </Col>
       </Row>

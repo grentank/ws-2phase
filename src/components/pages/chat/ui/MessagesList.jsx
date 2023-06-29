@@ -4,7 +4,7 @@ import ChatMessage from './ChatMessage';
 
 export default function MessagesList({ messages, loggedUser }) {
   return (
-    <div className="overflow-auto" style={{ height: '25rem' }}>
+    <div className="overflow-auto" style={{ height: '23rem' }}>
       <Stack>
         {messages.map((message) => (
           <ChatMessage message={message} key={message.id} loggedUser={loggedUser} />

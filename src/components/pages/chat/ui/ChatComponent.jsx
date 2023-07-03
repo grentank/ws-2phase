@@ -3,13 +3,14 @@ import { Stack } from 'react-bootstrap';
 import MessageForm from './MessageForm';
 import MessagesList from './MessagesList';
 
-export default function ChatComponent({ messages, loggedUser }) {
-  const writes = false;
+export default function ChatComponent({ currentWriterHandler, messages, loggedUser, submitHandler, currentWriter }) {
   return (
     <Stack>
       <MessagesList messages={messages} loggedUser={loggedUser} />
-      <div className="fs-6 fw-light">{writes ? 'Alex печатает...' : `\xa0`}</div>
-      <MessageForm />
+      <div className="fs-6 fw-light">
+        {currentWriter ? `${currentWriter.name} печатает...` : `\xa0`}
+      </div>
+      <MessageForm currentWriterHandler={currentWriterHandler} submitHandler={submitHandler} />
     </Stack>
   );
 }
